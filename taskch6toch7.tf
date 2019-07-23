@@ -1,13 +1,16 @@
+variable "heroku_email" {}
 variable "heroku_api_key" {}
 
+
 provider "heroku" {
-  email   = "ultimateengineer777@gmail.com"
+  email   = "${var.heroku_email}"
   api_key = "${var.heroku_api_key}"
 }
 
 resource "heroku_app" "default" {
   name   = "taskch6toch7"
   region = "us"
+  
 }
 
 resource "heroku_addon" "database" {
